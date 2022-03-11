@@ -1,0 +1,16 @@
+# discord_bitcoin_price_bot.py
+import requests
+
+# Provide the webhook URL that Discord generated
+discord_webhook_url = 'https://discord.com/api/webhooks/950456922644054107/GSbwAuqxeaTuu_2xnRs-ZWZGzZpQhgznIU_NXdo53LlAHGk16eRKctFrHAEvOrjzgl7a'
+
+# Get the BTC price from CoinDesk
+bitcoin_price_url = 'https://api.coindesk.com/v1/bpi/currentprice/BTC.json'
+data = requests.get(bitcoin_price_url).json()
+price_in_usd = data['bpi']['USD']['rate']
+
+# Post the message to the Discord webhook
+data = {
+    "content": "Bitcoin price is currently at $" + price_in_usd + " USD"
+}
+requests.post(https://discord.com/api/webhooks/950456922644054107/GSbwAuqxeaTuu_2xnRs-ZWZGzZpQhgznIU_NXdo53LlAHGk16eRKctFrHAEvOrjzgl7a, data=data)
